@@ -1,6 +1,28 @@
 let Oblast = [
     {city:'Луганська_область', coordinate:[ 48.799,39.089]},
     {city:'Полтавська_область', coordinate:[49.35,34.33]},
+    {city:'Вінницька_область', coordinate:[]},
+    {city:'Волинська_область', coordinate:[]},
+    {city:'Дніпропетровська_область', coordinate:[]},
+    {city:'Донецька_область', coordinate:[]},
+    {city:'Житомирська_область', coordinate:[]},
+    {city:'Закарпатська_область', coordinate:[]},
+    {city:'Запорізька_область', coordinate:[]},
+    {city:'Івано-Франківська_область', coordinate:[]},
+    {city:'Київська_область', coordinate:[]},
+    {city:'Кіровоградська_область', coordinate:[]},
+    {city:'Львівська_область', coordinate:[]},
+    {city:'Миколаївська_область', coordinate:[]},
+    {city:'Одеська_область', coordinate:[]},
+    {city:'Рівненська_область', coordinate:[]},
+    {city:'Сумська_область ', coordinate:[]},
+    {city:'Тернопільська_область', coordinate:[]},
+    {city:'Харківська_область', coordinate:[]},
+    {city:'Херсонська_область', coordinate:[]},
+    {city:'Хмельницька_область', coordinate:[]},
+    {city:'Черкаська_область ', coordinate:[]},
+    {city:'Чернігівська_область', coordinate:[]},
+    {city:'Київ', coordinate:[]},
 ];
 
 
@@ -11,8 +33,6 @@ let Oblast = [
 
 var ProxyUrl ='https://cors-anywhere.herokuapp.com/';
 var TargetUrl = 'https://alarmmap.online/assets/alerts.json';
-// на случай если основная ссылка не работает
-//https://alarmmap.online/assets/json/_alarms/siren.json?0.7152377075796739
     MapTile = 'https://github.com/wmgeolab/geoBoundaries/raw/6b002b1eee2fd9599f1a3af8fe076d694e6decee/releaseData/gbOpen/UKR/ADM1/geoBoundaries-UKR-ADM1_simplified.geojson'
 /*fetch(ProxyUrl + TargetUrl)
     .then(Blob => Blob.json())
