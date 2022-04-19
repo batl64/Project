@@ -20,7 +20,7 @@
 </head>
 <body>
     <div id="map"></div>
-    <script src="scrip.js" type="text/javascript"></script>
+ <!--  <script src="scrip.js" type="text/javascript"></script>-->
     
     <pre></pre>
 </body>
@@ -33,12 +33,66 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(map);
 
-// L.geoJson function is used to parse geojson file and load on to map
+let Oblast = [
+    {city:'Луганська_область'},
+    {city:'м_Миколаїв_та_Миколаївська_територіальна_громада'}
+];
 
-/*fetch('https://github.com/wmgeolab/geoBoundaries/raw/6b002b1eee2fd9599f1a3af8fe076d694e6decee/releaseData/gbOpen/UKR/ADM1/geoBoundaries-UKR-ADM1_simplified.geojson')
-    .then(res => res.json)
-    .then(data =>{
-        L.geoJson(data).addTo(map   )
-    });*/
-    
+
+
+var ProxyUrl ='https://cors-anywhere.herokuapp.com/';
+var TargetUrl = 'https://alarmmap.online/assets/json/_alarms/siren.json?0.7152377075796739';
+    MapTile = 'https://github.com/wmgeolab/geoBoundaries/raw/6b002b1eee2fd9599f1a3af8fe076d694e6decee/releaseData/gbOpen/UKR/ADM1/geoBoundaries-UKR-ADM1_simplified.geojson'
+    Urls = 'https://alarmmap.online/assets/json/_alarms/siren.json?0.7152377075796739'
+
+    var key = 255;
+let clone = {};
+var arr = new Array(50);
+function getAlarm(ProxyUrl,TargetUrl,arr){
+    fetch(ProxyUrl + TargetUrl)
+    .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        console.log(data[0].district);
+        arr = data;
+
+        for (let key in arr) {
+            clone[key] = data[key].district;
+          }
+          console.log(clone)
+        for(let key in arr){
+            data[key]== Oblast[key]
+              //  console.log(Oblast[key]);
+                list(Oblast);
+        }
+     
+      });
+}
+
+getAlarm(ProxyUrl,TargetUrl)
+
+
+setInterval(console.log(clone), 100)
+      fetch(ProxyUrl + MapTile)
+      .then(Blob => Blob.json())
+      .then(data =>{
+          L.geoJson(data).addTo(map)
+      });
+
+//можно в эти функции добавить сами тайлы на область а не на всю карту
+
+function list(Oblast){
+    for(var i=0;i<50;i++){
+        if(Oblast[i]==Oblast[0]){
+            var marlugansk = L.marker([48.799,39.089]).addTo(map);
+        }
+        if(Oblast[i]==Oblast[1]){
+            var marnikolaev = L.marker([46.9659100,31.9974000]).addTo(map).bindPopup('Повітряна тривога');
+        }
+    }
+}
+
+
+        
 </script>

@@ -1,4 +1,4 @@
-let Oblast = [
+/*let Oblast = [
     {city:'Луганська_область', coordinate:[ 48.799,39.089]},
     {city:'Полтавська_область', coordinate:[49.35,34.33]},
     {city:'Вінницька_область', coordinate:[]},
@@ -23,17 +23,18 @@ let Oblast = [
     {city:'Черкаська_область ', coordinate:[]},
     {city:'Чернігівська_область', coordinate:[]},
     {city:'Київ', coordinate:[]},
+];*/
+
+let Oblast = [
+    {city:'Луганська_область', coordinate:[ 48.799,39.089]},
 ];
 
 
 
-
-
-
-
 var ProxyUrl ='https://cors-anywhere.herokuapp.com/';
-var TargetUrl = 'https://alarmmap.online/assets/alerts.json';
+var TargetUrl = 'https://alarmmap.online/assets/json/_alarms/siren.json?0.7152377075796739';
     MapTile = 'https://github.com/wmgeolab/geoBoundaries/raw/6b002b1eee2fd9599f1a3af8fe076d694e6decee/releaseData/gbOpen/UKR/ADM1/geoBoundaries-UKR-ADM1_simplified.geojson'
+    Urls = 'https://alarmmap.online/assets/json/_alarms/siren.json?0.7152377075796739'
 /*fetch(ProxyUrl + TargetUrl)
     .then(Blob => Blob.json())
     .then(data=>{
@@ -69,11 +70,24 @@ function getAlarm(ProxyUrl,TargetUrl,arr){
         for (let key in arr) {
             clone[key] = data[key].district;
           }
-        
+          console.log(clone)
 
-         
-      
-
+        /* for(let key in Oblast){
+             if(data[key].district == Oblast[key].city){
+                 L.marker(Oblast.coordinate[key]).addTo(map);
+             }
+         }*/
+      /*   for(var i=0;i<255; i++){
+             if(clone[0].district==Oblast[0].city){
+                 L.marker(Oblast[i].coordinate).addTo(map);
+             }
+         };
+      */
+     for(var i =0;i<50;i++){
+         if(clone[i].district==Oblast[i].city){
+           console.log(Oblast);
+        }
+    }
       });
     /*.then(Blob => Blob.json())
     .then(data=>{
@@ -92,7 +106,7 @@ getAlarm(ProxyUrl,TargetUrl)
 
 setInterval(console.log(clone), 100)
 
-
+//console.log(Oblast[0].city);
 
     
 
