@@ -11,6 +11,8 @@ let Oblast = [
 
 var ProxyUrl ='https://cors-anywhere.herokuapp.com/';
 var TargetUrl = 'https://alarmmap.online/assets/alerts.json';
+// на случай если основная ссылка не работает
+//https://alarmmap.online/assets/json/_alarms/siren.json?0.7152377075796739
     MapTile = 'https://github.com/wmgeolab/geoBoundaries/raw/6b002b1eee2fd9599f1a3af8fe076d694e6decee/releaseData/gbOpen/UKR/ADM1/geoBoundaries-UKR-ADM1_simplified.geojson'
 /*fetch(ProxyUrl + TargetUrl)
     .then(Blob => Blob.json())
