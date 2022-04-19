@@ -1,5 +1,6 @@
 let Oblast = [
     {city:'Луганська_область', coordinate:[ 48.799,39.089]},
+    {city:'Полтавська_область', coordinate:[49.35,34.33]},
 ];
 
 
@@ -39,13 +40,14 @@ function getAlarm(ProxyUrl,TargetUrl,arr){
         return response.json();
       })
       .then((data) => {
-        console.log(data);
+        console.log(data[0].district);
         arr = data;
 
+      
         for (let key in arr) {
-            clone[key] = arr[key];
+            clone[key] = data[key].district;
           }
-          console.log(clone);
+        
 
          
       
@@ -67,13 +69,10 @@ getAlarm(ProxyUrl,TargetUrl)
 
 
 setInterval(console.log(clone), 100)
-console.log(clone)
 
 
 
-
-
-
+    
 
 
 
