@@ -35,7 +35,7 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 
 let Oblast = [
     {city:'Луганська_область'},
-    {city:'м_Миколаїв_та_Миколаївська_територіальна_громада'}
+    {city:'м_Миколаїв_та_Миколаївська_територіальна_громада'},
 ];
 
 
@@ -64,7 +64,8 @@ function getAlarm(ProxyUrl,TargetUrl,arr){
         for(let key in arr){
             data[key]== Oblast[key]
               //  console.log(Oblast[key]);
-                list(Oblast);
+               //    list(Oblast);
+                setInterval(list,100);
         }
      
       });
@@ -82,12 +83,12 @@ setInterval(console.log(clone), 100)
 
 //можно в эти функции добавить сами тайлы на область а не на всю карту
 
-function list(Oblast){
+function list(data){
     for(var i=0;i<50;i++){
-        if(Oblast[i]==Oblast[0]){
+        if(clone[i] ==Oblast[0].city){
             var marlugansk = L.marker([48.799,39.089]).addTo(map);
         }
-        if(Oblast[i]==Oblast[1]){
+        else if(clone[i] == Oblast[1].city){
             var marnikolaev = L.marker([46.9659100,31.9974000]).addTo(map).bindPopup('Повітряна тривога');
         }
     }
