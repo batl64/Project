@@ -343,16 +343,15 @@ function markerOnClick()
 }
 
 function alarm(data){
-    const obl = prompt('Введіть область \n Приклад: ІваноФранківська_область');
+    const obl = prompt('Введіть область \n Приклад: ІваноФранківська');
     
     for(i = 0;i<50;i++){
-        if(clone[i]== obl){
-            alert("Повітряна Тривога " + obl);
+        if(clone[i]== obl+'_область'){
+            alert("Повітряна Тривога " + obl +'_область');
             break;
     }else if(clone[i] != obl){
         alert("Сталася помилка \n У області нема повітряної тривоги або ви некоректно увели дані ");
         break;
-        
     }
 }
 }
