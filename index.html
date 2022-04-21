@@ -97,13 +97,16 @@ function getAlarm(ProxyUrl,TargetUrl,arr){
         return response.json();
       })
       .then((data) => {
-          console.table(data);
-        arr = data;
+          console.log(data);
+        arr = JSON.parse(data);
+
         // создание клона данных
+
+
         for (let key in arr) {
-            clone[key] = data[key].district;
+            clone[key] = arr[key].district;
         }
-       
+        
         setTimeout(list(data),100);
         //ввывод данных про воздушную сирену
       // setInterval(list,100);
