@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Refresh" content="60" />
     <title>AlarmUkrMap</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
     <style>
@@ -81,7 +80,8 @@ var markerIcon = L.icon({
     iconSize:     [25, 37],
     iconAnchor:   [15, 22],
 })
-
+// авто оновление каждые 25 секунд
+setInterval(function() { 
 // прокси может слетать, так же как и апи на сирены, нужно держать в курсе
 var ProxyUrl ='https://cors.eu.org/';
 var TargetUrl = 'https://alarmmap.online/assets/json/_alarms/siren.json';
@@ -338,4 +338,5 @@ function markerOnClick()
     var audio = new Audio('./src/alarm.mp3');
     audio.play();
 }
+}, 25000);
 </script>
